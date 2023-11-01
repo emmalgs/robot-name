@@ -56,7 +56,7 @@ describe('Robot', () => {
     expect(originalName).not.toEqual(newName);
   });
 
-  xtest('should set a unique name after reset', () => {
+  test('should set a unique name after reset', () => {
     const NUMBER_OF_ROBOTS = 10000;
     const usedNames = new Set();
 
@@ -69,7 +69,7 @@ describe('Robot', () => {
     expect(usedNames.size).toEqual(NUMBER_OF_ROBOTS + 1);
   });
 
-  xtest('internal name cannot be modified', () => {
+  test('internal name cannot be modified', () => {
     const modifyInternal = () => {
       robot.name += 'a modification';
     };

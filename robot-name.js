@@ -3,8 +3,14 @@
 
 export class Robot {
   constructor() {
-    this.name = this.generateName();
+    this._name = this.generateName();
   }
+
+  get name() {
+    return this._name;
+  }
+
+  usedNames = new Set();
 
   generateCharCode() {
     const min = 65;
@@ -23,11 +29,17 @@ export class Robot {
     const n2 = this.generateNumber();
     const n3 = this.generateNumber();
 
-    return c1 + c2 + n1 + n2 + n3;
+    const name = c1 + c2 + n1 + n2 + n3;
+    if (!this.usedNames.has(name)) {
+      this.usedNames.add(name);
+      return name;
+    } else {
+      return this.generateName();
+    }
   }
 
   reset() {
-    this.name = this.generateName()
+    this._name = this.generateName();
   }
 }
 
