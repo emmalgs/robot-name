@@ -25,6 +25,10 @@ export class Robot {
 
     return c1 + c2 + n1 + n2 + n3;
   }
+
+  reset() {
+    this.name = this.generateName()
+  }
 }
 
 Robot.releaseNames = () => {};
